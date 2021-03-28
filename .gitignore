@@ -1,0 +1,11 @@
+node_modules/
+dist/
+
+src/generated/
+*.db
+migrations/
+
+*.env*
+!.env.example
+.serverless
+.DS_Store

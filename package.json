@@ -1,0 +1,60 @@
+{
+  "name": "serverless-prisma2",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ryan Dsouza"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "run-p generate:prisma watch:* offline",
+    "deploy": "sls deploy",
+    "offline": "sls offline",
+    "db:save": "prisma migrate dev --create-only --preview-feature",
+    "db:migrate": "prisma migrate dev --preview-feature",
+    "seed": "prisma db seed --preview-feature",
+    "watch:nexus": "tsnd --transpile-only ./src/schema",
+    "watch:ts": "tsc --watch",
+    "generate:prisma": "prisma generate",
+    "prepare": "husky install"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "2.18.0",
+    "apollo-server-lambda": "2.22.1",
+    "dotenv": "^8.2.0",
+    "graphql": "15.5.0",
+    "graphql-iso-date": "3.6.1",
+    "nexus": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@types/graphql-iso-date": "3.4.0",
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^4.0.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "husky": "5",
+    "lint-staged": ">=10.5.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "prisma": "2.19.0",
+    "serverless": "2.30.0",
+    "serverless-dotenv-plugin": "^3.8.1",
+    "serverless-offline": "^6.8.0",
+    "ts-node": "9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md}": "prettier --write"
+  }
+}
